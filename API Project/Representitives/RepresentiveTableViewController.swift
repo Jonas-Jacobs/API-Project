@@ -7,7 +7,8 @@
 
 import UIKit
 
-class RepresentiveTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
+class RepresentiveTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UITableViewDataSource {
+ 
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,7 +22,7 @@ class RepresentiveTableViewController: UIViewController, UITableViewDelegate, UI
         searchBar.delegate = self
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         fetchItems()
     }
     
@@ -51,22 +52,20 @@ class RepresentiveTableViewController: UIViewController, UITableViewDelegate, UI
     func configure(cell: RepsTableViewCell, forItemAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         cell.nameLabel.text = item.name
-        cell.partyAndLocationLabel.text = ("\(item.party), \(item.state)")
+        cell.partyLabel.text = ("\(item.party), \(item.state)")
         cell.linkLabel.text = item.link
     }
-   
-    
-    
+
     // MARK: - Table view data source
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "representativeCell", for: indexPath) as! RepsTableViewCell
         configure(cell: cell, forItemAt: indexPath)
-        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+   
 }

@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="134" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="representativeCell" rowHeight="90" id="j88-Fx-gto" customClass="RepsCell" customModule="API_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="representativeCell" rowHeight="90" id="j88-Fx-gto" customClass="RepsTableViewCell" customModule="API_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j88-Fx-gto" id="PH4-lg-UAq">
@@ -114,13 +114,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="linkLabel" destination="W56-r1-9qA" id="UBv-9M-vJq"/>
-                                            <outlet property="nameLabel" destination="PqN-U6-T3x" id="idf-O6-KDb"/>
-                                            <outlet property="partyAndLocationLabel" destination="2FR-pY-GZ1" id="Iml-Xm-fqE"/>
+                                            <outlet property="linkLabel" destination="W56-r1-9qA" id="mIU-Lp-dJP"/>
+                                            <outlet property="nameLabel" destination="PqN-U6-T3x" id="ias-cK-Cij"/>
+                                            <outlet property="partyLabel" destination="2FR-pY-GZ1" id="tsu-13-mef"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XI4-SZ-OGX" id="7Ys-rj-k5j"/>
+                                    <outlet property="delegate" destination="XI4-SZ-OGX" id="tID-kx-gHq"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Representitives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0r-fW-K8V">
                                 <rect key="frame" x="128" y="44" width="159" height="29"/>
